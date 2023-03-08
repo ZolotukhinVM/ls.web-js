@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS</title>
+</head>
+<script>
+// homework #1
+
+const string = "Привет! Как дела?";
+function getVowels (str) {
+  let arrVowels = ['а', 'е', 'ё', 'и', 'й', 'о', 'у', 'ы','э', 'ю', 'я'];
+  let resultStr = "";
+  let countStr = str.length;
+  for (let i = 0; i < countStr; i++) {
+    if (arrVowels.includes(str[i])) {
+      resultStr = resultStr + str[i];
+    }
+  }
+  return resultStr;
+}
+console.log(getVowels(string));
+
+// homework #2  
+
+const workers = [
+		{"name":"John","salary":500},
+		{"name":"Mike","salary":1300},
+		{"name":"Linda","salary":1500}
+  ];
+arrWorthWorkers = function (arr) {
+  const checkSum = 1000;
+  let countArr = arr.length;
+  let resultArr = [];
+  for (let i = 0; i < countArr; i++) {
+    if (arr[i].salary > checkSum) {
+      resultArr.push(arr[i].name);
+    }
+  }
+  return resultArr;
+}
+console.log (arrWorthWorkers(workers));
+
+//homework #3
+
+const path = "/users/download/index.html";
+function isHTML(str) {
+  searchStr = ".html";
+  return (str.indexOf(searchStr) > 0) ? true : false;
+}
+console.log(isHTML(path));
+</script>
+</html>
