@@ -16,7 +16,7 @@ function getVowels (str) {
   let countStr = str.length;
   for (let i = 0; i < countStr; i++) {
     if (arrVowels.includes(str[i])) {
-      resultStr = resultStr + str[i];
+      resultStr += str[i];
     }
   }
   return resultStr;
@@ -47,7 +47,7 @@ console.log (arrWorthWorkers(workers));
 
 const path = "/users/download/index.html";
 function isHTML(str) {
-  searchStr = ".html";
+  let searchStr = ".html";
   return (str.indexOf(searchStr) > 0) ? true : false;
 }
 console.log(isHTML(path));
