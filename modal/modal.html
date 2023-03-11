@@ -16,12 +16,14 @@
       </p>
       <button class="btn" id="openOverlay">открыть</button>
     </div>
+
     <template id="overlayTemplate">
       <div class="modal-container">
         <a class="close" href="#">x</a>
         <div class="content"></div>
       </div>
     </template>
+    
     <script>
       const openButton = document.querySelector("#openOverlay");
       const successModal = createModal("Сообщение");
