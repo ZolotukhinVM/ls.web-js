@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modal</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem magnam
+        ratione quasi alias adipisci molestias doloribus, provident eum natus
+        rerum, numquam delectus cum at nobis consectetur deserunt perspiciatis
+        eveniet temporibus.
+      </p>
+      <button class="btn" id="openOverlay">открыть</button>
+    </div>
+    <template id="overlayTemplate">
+      <div class="modal-container">
+        <a class="close" href="#">x</a>
+        <div class="content"></div>
+      </div>
+    </template>
+    <script>
+      const openButton = document.querySelector("#openOverlay");
+      const successModal = createModal("Сообщение");
+      const body = document.body;
+
+      openButton.addEventListener("click", e => {
+        body.appendChild(successModal);
+      })
+
+      function createModal(content) {
+        const overlayElement = document.createElement("div");
+        overlayElement.classList.add("overlay");
+
+        const template = document.querySelector("#overlayTemplate");
+
+        overlayElement.innerHTML = template.innerHTML;
+        overlayElement.addEventListener("click", e => {
+          if (e.target === overlayElement) {
+            closeElement.click();
+          }
+        })
+
+        const closeElement = overlayElement.querySelector(".close");
+        closeElement.addEventListener("click", e => {
+          e.preventDefault();
+          body.removeChild(overlayElement);
+        })
+
+        const contentElement = overlayElement.querySelector(".content");
+        contentElement.innerHTML = content;
+        return overlayElement;
+      }
+    </script>
+  </body>
+</html>
